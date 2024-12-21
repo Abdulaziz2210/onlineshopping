@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
-
 import Navbar from "./components/navbar";
 import Footer from './components/footer';
 import { Route, Routes } from 'react-router-dom';
+import Error from "./components/404 error/error.jsx"
 
 const Home = lazy(() => import('./pages/home/home.jsx'));
 const About = lazy(() => import('./pages/about/about.jsx'));
@@ -11,6 +11,7 @@ const Contact = lazy(() => import('./pages/contact/contact.jsx'));
 const Login = lazy(() => import('./pages/login/login.jsx'));
 const Register = lazy(() => import('./pages/register/register.jsx'));
 const Cart = lazy(() => import('./pages/cart/cart.jsx'));
+
 
 const App = () => {
   return (
@@ -26,7 +27,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='*' element={<h1>Page Not Found</h1>} />
+          <Route path='*' element={<Error/>} />
         </Routes>
       </Suspense>
 
